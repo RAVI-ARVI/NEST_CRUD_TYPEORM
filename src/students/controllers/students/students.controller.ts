@@ -15,7 +15,7 @@ import { StudentsService } from 'src/students/services/students/students.service
 
 @Controller('students')
 export class StudentsController {
-  constructor(private studentService: StudentsService) {} //ekkada echine studentsservice nu post lo use chstunnam
+  constructor(private studentService: StudentsService) {}
   @Get()
   async getStudents() {
     const students = await this.studentService.findStudents();

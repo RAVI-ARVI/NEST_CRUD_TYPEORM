@@ -48,21 +48,4 @@ export class StudentsService {
     student.profile = savedProfile;
     return this.studentRepository.save(student);
   }
-
-  // async createUserPost(
-  //   id: number,
-  //   createUserPostDetails: CreateUserPostParams,
-  // ) {
-  //   const user = await this.userRepository.findOneBy({ id });
-  //   if (!user)
-  //     throw new HttpException(
-  //       'User not found. Cannot create Profile',
-  //       HttpStatus.BAD_REQUEST,
-  //     );
-  //   const newPost = this.postRepository.create({
-  //     ...createUserPostDetails,
-  //     user,
-  //   });
-  //   return this.postRepository.save(newPost);
-  // }
 }
