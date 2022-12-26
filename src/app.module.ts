@@ -4,6 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { student } from './typorm/entities/student';
 import { StudentsModule } from './students/students.module';
+import { Profile } from './typorm/entities/profile';
 
 @Module({
   imports: [
@@ -13,7 +14,7 @@ import { StudentsModule } from './students/students.module';
       username: 'admin',
       password: 'elonMusk123',
       database: 'ravi',
-      entities: [student],
+      entities: [student, Profile],
       synchronize: true,
     }),
     StudentsModule,

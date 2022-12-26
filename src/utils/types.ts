@@ -10,3 +10,10 @@ export type UpdateStudentParams = {
   phoneNumber: number;
   address: string;
 };
+
+export type CreateStudentProfileParams = {
+  firstName: string;
+  lastName: string;
+  class: number;
+  dob: string;
+};

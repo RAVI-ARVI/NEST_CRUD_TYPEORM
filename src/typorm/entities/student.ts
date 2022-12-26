@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Profile } from './profile';
 
 @Entity({ name: 'students' })
 export class student {
@@ -14,4 +21,7 @@ export class student {
   createdAt: Date;
   @Column({ nullable: true })
   address: string;
+  @OneToOne(() => Profile)
+  @JoinColumn()
+  profile: Profile;
 }
