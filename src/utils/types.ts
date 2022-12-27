@@ -17,3 +17,7 @@ export type CreateStudentProfileParams = {
   class: number;
   dob: string;
 };
+export type CreatestudentPostParams = {
+  title: string;
+  description: string;
+};

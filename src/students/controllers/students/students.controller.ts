@@ -12,6 +12,7 @@ import { CreateStudentProfiledto } from 'src/students/dtos/CreateStudentProfile.
 import { createStudentsDto } from 'src/students/dtos/CreateStudents.dto';
 import { UpdateStudentDto } from 'src/students/dtos/UpdateStudents.dto';
 import { StudentsService } from 'src/students/services/students/students.service';
+import { CreatestudentPostParams } from 'src/utils/types';
 
 @Controller('students')
 export class StudentsController {
@@ -19,6 +20,11 @@ export class StudentsController {
   @Get()
   async getStudents() {
     const students = await this.studentService.findStudents();
+    return students;
+  }
+  @Get(':id')
+  async getStudentsbyID(@Param('id', ParseIntPipe) id: number) {
+    const students = await this.studentService.findstudentbyId(id);
     return students;
   }
   @Post()
@@ -45,5 +51,12 @@ export class StudentsController {
       id,
       createStudentProfileDto,
     );
+  }
+  @Post(':id/posts')
+  createUserPost(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() createUserPostDto: CreatestudentPostParams,
+  ) {
+    return this.studentService.createStudentPost(id, createUserPostDto);
   }
 }
